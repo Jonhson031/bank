@@ -9,7 +9,7 @@ button {
 
 html,
 body {
-    height: 100%;
+    min-height: 100%;
 }
 
 body {
@@ -30,8 +30,7 @@ body {
     min-height: 100%;
     display: flex;
     flex-direction: column;
-    // overflow: clip;
-    // overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .wrapper main {
@@ -191,19 +190,22 @@ body {
 
 .dashboard {
 
-    // position: absolute;
-    // visibility: hidden;
-    // width: 100%;
-    // height: 100%;
-    // opacity: 0;
-    // left: 0;
-    // top: 0;
-    // display: flex;
-    // align-items: center;
-    // transition: all 1s;
+    position: absolute;
+    display: block;
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    left: 0;
+    top: 0;
+    background-color: #fff;
+    transition: all 1s;
+    z-index: -1;
+
     &.active {
         opacity: 1;
         visibility: visible;
+        z-index: initial;
     }
 
     // .dashboard__container
@@ -218,11 +220,15 @@ body {
 
     &__sidebar {
         &.sticky {
+            padding-top: 4em;
+            width: 8em;
             position: fixed;
-            height: 884px;
-            width: 126.44px;
-            left: 0;
+            height: 100vh;
             top: 0;
+            // height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
         }
     }
 
@@ -235,9 +241,9 @@ body {
     // .dashboard__sections-list
 
     &__sections-list {
-        display: grid;
+        display: flex;
+        flex-direction: column;
         gap: 2.5em;
-        margin-bottom: 30.5em;
     }
 
     // .dashboard__item
@@ -259,12 +265,15 @@ body {
     // .dashboard__logout
 
     &__logout {
+        flex-grow: 0.8;
         color: #555;
         font-family: "DM Sans";
         font-size: 1.25rem;
         font-weight: 500;
         border: none;
         cursor: pointer;
+        display: flex;
+        align-items: flex-end;
     }
 
     &__content {
@@ -272,7 +281,7 @@ body {
         display: flex;
         flex: 0 1 100%;
         flex-direction: column;
-        margin-left: 6.5em;
+        margin-left: 14.5em;
     }
 
     // .dashboard__header
@@ -373,28 +382,35 @@ body {
         }
     }
 
+    &__sections {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        margin-top: 5em;
+    }
+
     // .dashboard__section
     &__section {
-        margin-top: 9em;
-
-        position: absolute;
         visibility: hidden;
-        width: 100%;
-        height: 100%;
         opacity: 0;
-        left: 0;
+        position: absolute;
         top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
 
+        /* fills wrapper */
         &.active {
             visibility: visible;
             opacity: 1;
-            z-index: 2;
+            z-index: 3;
         }
     }
 
     &__section--overview {
         display: grid;
-        grid-template-columns: 54.57% 36.91%;
+        grid-template-columns: minmax(0, 54.57%) minmax(0, 36.91%);
+        gap: 10px;
         justify-content: space-between;
     }
 
@@ -537,11 +553,12 @@ body {
         padding: 2.6em 2.7em;
     }
 
-    &__content-accounts{
+    &__content-accounts {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 2.87em;
     }
+
     // .section__add
 
     &__add {
@@ -991,8 +1008,9 @@ body {
 }
 
 .section {
+
     // ? section transactions
-    &__accounts-transactions{
+    &__accounts-transactions {
         grid-template-columns: repeat(3, 1fr);
     }
 
@@ -1232,3 +1250,20 @@ body {
         height: 35.4375rem;
     }
 }
+
+// @media(max-width: 1440px) {
+//     .dashboard {
+//         &__header{
+//             display: flex;
+//             flex-direction: column;
+//         }
+//         &__section--overview {
+//             display: grid;
+//             grid-template-columns: 1fr;
+//             gap: 10px;
+//             justify-content: initial;
+//             display: flex;
+//             flex-direction: column;
+//         }
+//     }
+// }

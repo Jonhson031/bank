@@ -1,7 +1,10 @@
 'use strict';
 
 const login = document.querySelector('.login');
+const loginEmail = document.getElementById('login__email');
+const loginPassword = document.getElementById('login__password');
 const body = document.querySelector('body');
+const dashboard = document.querySelector('.dashboard');
 const labelSumIn = document.querySelectorAll('.section__statistics-value--income');
 const labelSumOut = document.querySelectorAll('.section__statistics-value--expense')
 const labelBalance = document.querySelector('.total-balance');
@@ -30,168 +33,321 @@ const accountAddOverview = document.querySelector('.section__accound-add');
 document.querySelector('.header__button').addEventListener('click', (e) => {
     e.preventDefault();
     login.classList.add('active');
-    body.style.overflow = 'hidden';
+    // body.style.overflow = 'hidden';
 })
 
-if (login.classList.contains('active')) {
+// Users
+const users = [
+    {
+        owner: 'Joe Doe',
+        email: 'test@email.com',
+        id: '1234567890',
+        password: 'test',
+        accounts: [
+            {
+                name: 'Main Account',
+                currency: 'USD',
+                movements: [
+                    {
+                        amount: 200,
+                        date: '2019-11-18T21:31:17.178Z',
+                        source: 'Direct Deposit'
+                    },
+                    {
+                        amount: 455.23,
+                        date: '2019-12-23T07:42:02.383Z',
+                        source: 'Credit Card'
+                    },
+                    {
+                        amount: 4244.23242424,
+                        date: '2019-12-23T07:42:02.383Z',
+                        source: 'Credit Card'
+                    },
+                    {
+                        amount: -306.5,
+                        date: '2020-01-28T09:15:04.904Z',
+                        source: 'Jane Doe'
+                    },
+                    {
+                        amount: 25000,
+                        date: '2020-04-01T10:17:24.185Z',
+                        source: 'Direct Deposit'
+                    },
+                    {
+                        amount: -642.21,
+                        date: '2020-05-08T14:11:59.604Z',
+                        source: 'Credit Card'
+                    },
+                    {
+                        amount: -133.9,
+                        date: '2020-05-27T17:01:17.194Z',
+                        source: 'Jane Doe'
+                    },
+                    {
+                        amount: 79.97,
+                        date: '2020-07-11T23:36:17.929Z',
+                        source: 'Direct Deposit'
+                    },
+                    {
+                        amount: 1300,
+                        date: '2020-07-13T10:51:36.790Z',
+                        source: 'Credit Card'
+                    },
+                    {
+                        amount: 1300,
+                        date: '2020-07-14T10:51:36.790Z',
+                        source: 'Credit Card'
+                    },
+                    {
+                        amount: 1300,
+                        date: '2020-07-15T10:51:36.790Z',
+                        source: 'Credit Card'
+                    },
+                    {
+                        amount: -5300,
+                        date: '2020-07-15T11:51:36.790Z',
+                        source: 'Credit Card'
+                    },
+                    {
+                        amount: 310.5,
+                        date: '2020-07-15T12:51:36.790Z',
+                        source: 'Credit Card'
+                    },
+                ]
+            },
 
-}
+            {
+                name: 'Savings Account',
+                currency: 'USD',
+                movements: [
+                    {
+                        amount: 400,
+                        date: '2020-11-18T21:31:17.178Z',
+                        source: 'Direct Deposit'
+                    },
+                    {
+                        amount: 953.2,
+                        date: '2020-12-23T07:42:02.383Z',
+                        source: 'Credit Card'
+                    },
+                    {
+                        amount: -42.5,
+                        date: '2021-01-28T09:15:04.904Z',
+                        source: 'Jane Doe'
+                    },
+                    {
+                        amount: 2400,
+                        date: '2021-04-01T10:17:24.185Z',
+                        source: 'Direct Deposit'
+                    },
+                    {
+                        amount: -642.21,
+                        date: '2021-05-08T14:11:59.604Z',
+                        source: 'Credit Card'
+                    },
+                    {
+                        amount: -213.9,
+                        date: '2021-05-27T17:01:17.194Z',
+                        source: 'Jane Doe'
+                    },
+                    {
+                        amount: 719.97,
+                        date: '2021-07-11T23:36:17.929Z',
+                        source: 'Direct Deposit'
+                    },
+                    {
+                        amount: 2743,
+                        date: '2021-07-12T10:51:36.790Z',
+                        source: 'Credit Card'
+                    }
+                ]
+            },
+            {
+                name: 'Holiday Savings',
+                currency: 'USD',
+                movements: [
+                    {
+                        amount: 155.5,
+                        date: '2022-11-18T21:31:17.178Z',
+                        source: 'Transfer'
+                    },
+                    {
+                        amount: 144.4,
+                        date: '2022-12-23T07:42:02.383Z',
+                        source: 'Credit Card'
+                    },
+                    {
+                        amount: -42.5,
+                        date: '2023-01-28T09:15:04.904Z',
+                        source: 'Jane Doe'
+                    },
+                    {
+                        amount: 1400,
+                        date: '2023-04-01T10:17:24.185Z',
+                        source: 'Direct Deposit'
+                    },
+                ]
+            },
+        ],
+    }
+]
 
 
 // Accounts
 
-const user1 = {
-    owner: 'Joe Doe',
-    email: 'test@email.com',
-    id: '1234567890',
-    password: 'test',
-    accounts: [
-        {
-            name: 'Main Account',
-            currency: 'USD',
-            movements: [
-                {
-                    amount: 200,
-                    date: '2019-11-18T21:31:17.178Z',
-                    source: 'Direct Deposit'
-                },
-                {
-                    amount: 455.23,
-                    date: '2019-12-23T07:42:02.383Z',
-                    source: 'Credit Card'
-                },
-                {
-                    amount: 4244.23242424,
-                    date: '2019-12-23T07:42:02.383Z',
-                    source: 'Credit Card'
-                },
-                {
-                    amount: -306.5,
-                    date: '2020-01-28T09:15:04.904Z',
-                    source: 'Jane Doe'
-                },
-                {
-                    amount: 25000,
-                    date: '2020-04-01T10:17:24.185Z',
-                    source: 'Direct Deposit'
-                },
-                {
-                    amount: -642.21,
-                    date: '2020-05-08T14:11:59.604Z',
-                    source: 'Credit Card'
-                },
-                {
-                    amount: -133.9,
-                    date: '2020-05-27T17:01:17.194Z',
-                    source: 'Jane Doe'
-                },
-                {
-                    amount: 79.97,
-                    date: '2020-07-11T23:36:17.929Z',
-                    source: 'Direct Deposit'
-                },
-                {
-                    amount: 1300,
-                    date: '2020-07-13T10:51:36.790Z',
-                    source: 'Credit Card'
-                },
-                {
-                    amount: 1300,
-                    date: '2020-07-14T10:51:36.790Z',
-                    source: 'Credit Card'
-                },
-                {
-                    amount: 1300,
-                    date: '2020-07-15T10:51:36.790Z',
-                    source: 'Credit Card'
-                },
-                {
-                    amount: -5300,
-                    date: '2020-07-15T11:51:36.790Z',
-                    source: 'Credit Card'
-                },
-                {
-                    amount: 310.5,
-                    date: '2020-07-15T12:51:36.790Z',
-                    source: 'Credit Card'
-                },
-            ]
-        },
+// const user1 = {
+//     owner: 'Joe Doe',
+//     email: 'test@email.com',
+//     id: '1234567890',
+//     password: 'test',
+//     accounts: [
+//         {
+//             name: 'Main Account',
+//             currency: 'USD',
+//             movements: [
+//                 {
+//                     amount: 200,
+//                     date: '2019-11-18T21:31:17.178Z',
+//                     source: 'Direct Deposit'
+//                 },
+//                 {
+//                     amount: 455.23,
+//                     date: '2019-12-23T07:42:02.383Z',
+//                     source: 'Credit Card'
+//                 },
+//                 {
+//                     amount: 4244.23242424,
+//                     date: '2019-12-23T07:42:02.383Z',
+//                     source: 'Credit Card'
+//                 },
+//                 {
+//                     amount: -306.5,
+//                     date: '2020-01-28T09:15:04.904Z',
+//                     source: 'Jane Doe'
+//                 },
+//                 {
+//                     amount: 25000,
+//                     date: '2020-04-01T10:17:24.185Z',
+//                     source: 'Direct Deposit'
+//                 },
+//                 {
+//                     amount: -642.21,
+//                     date: '2020-05-08T14:11:59.604Z',
+//                     source: 'Credit Card'
+//                 },
+//                 {
+//                     amount: -133.9,
+//                     date: '2020-05-27T17:01:17.194Z',
+//                     source: 'Jane Doe'
+//                 },
+//                 {
+//                     amount: 79.97,
+//                     date: '2020-07-11T23:36:17.929Z',
+//                     source: 'Direct Deposit'
+//                 },
+//                 {
+//                     amount: 1300,
+//                     date: '2020-07-13T10:51:36.790Z',
+//                     source: 'Credit Card'
+//                 },
+//                 {
+//                     amount: 1300,
+//                     date: '2020-07-14T10:51:36.790Z',
+//                     source: 'Credit Card'
+//                 },
+//                 {
+//                     amount: 1300,
+//                     date: '2020-07-15T10:51:36.790Z',
+//                     source: 'Credit Card'
+//                 },
+//                 {
+//                     amount: -5300,
+//                     date: '2020-07-15T11:51:36.790Z',
+//                     source: 'Credit Card'
+//                 },
+//                 {
+//                     amount: 310.5,
+//                     date: '2020-07-15T12:51:36.790Z',
+//                     source: 'Credit Card'
+//                 },
+//             ]
+//         },
 
-        {
-            name: 'Savings Account',
-            currency: 'USD',
-            movements: [
-                {
-                    amount: 400,
-                    date: '2020-11-18T21:31:17.178Z',
-                    source: 'Direct Deposit'
-                },
-                {
-                    amount: 953.2,
-                    date: '2020-12-23T07:42:02.383Z',
-                    source: 'Credit Card'
-                },
-                {
-                    amount: -42.5,
-                    date: '2021-01-28T09:15:04.904Z',
-                    source: 'Jane Doe'
-                },
-                {
-                    amount: 2400,
-                    date: '2021-04-01T10:17:24.185Z',
-                    source: 'Direct Deposit'
-                },
-                {
-                    amount: -642.21,
-                    date: '2021-05-08T14:11:59.604Z',
-                    source: 'Credit Card'
-                },
-                {
-                    amount: -213.9,
-                    date: '2021-05-27T17:01:17.194Z',
-                    source: 'Jane Doe'
-                },
-                {
-                    amount: 719.97,
-                    date: '2021-07-11T23:36:17.929Z',
-                    source: 'Direct Deposit'
-                },
-                {
-                    amount: 2743,
-                    date: '2021-07-12T10:51:36.790Z',
-                    source: 'Credit Card'
-                }
-            ]
-        },
-        {
-            name: 'Holiday Savings',
-            currency: 'USD',
-            movements: [
-                {
-                    amount: 155.5,
-                    date: '2022-11-18T21:31:17.178Z',
-                    source: 'Transfer'
-                },
-                {
-                    amount: 144.4,
-                    date: '2022-12-23T07:42:02.383Z',
-                    source: 'Credit Card'
-                },
-                {
-                    amount: -42.5,
-                    date: '2023-01-28T09:15:04.904Z',
-                    source: 'Jane Doe'
-                },
-                {
-                    amount: 1400,
-                    date: '2023-04-01T10:17:24.185Z',
-                    source: 'Direct Deposit'
-                },
-            ]
-        },
-    ],
-}
+//         {
+//             name: 'Savings Account',
+//             currency: 'USD',
+//             movements: [
+//                 {
+//                     amount: 400,
+//                     date: '2020-11-18T21:31:17.178Z',
+//                     source: 'Direct Deposit'
+//                 },
+//                 {
+//                     amount: 953.2,
+//                     date: '2020-12-23T07:42:02.383Z',
+//                     source: 'Credit Card'
+//                 },
+//                 {
+//                     amount: -42.5,
+//                     date: '2021-01-28T09:15:04.904Z',
+//                     source: 'Jane Doe'
+//                 },
+//                 {
+//                     amount: 2400,
+//                     date: '2021-04-01T10:17:24.185Z',
+//                     source: 'Direct Deposit'
+//                 },
+//                 {
+//                     amount: -642.21,
+//                     date: '2021-05-08T14:11:59.604Z',
+//                     source: 'Credit Card'
+//                 },
+//                 {
+//                     amount: -213.9,
+//                     date: '2021-05-27T17:01:17.194Z',
+//                     source: 'Jane Doe'
+//                 },
+//                 {
+//                     amount: 719.97,
+//                     date: '2021-07-11T23:36:17.929Z',
+//                     source: 'Direct Deposit'
+//                 },
+//                 {
+//                     amount: 2743,
+//                     date: '2021-07-12T10:51:36.790Z',
+//                     source: 'Credit Card'
+//                 }
+//             ]
+//         },
+//         {
+//             name: 'Holiday Savings',
+//             currency: 'USD',
+//             movements: [
+//                 {
+//                     amount: 155.5,
+//                     date: '2022-11-18T21:31:17.178Z',
+//                     source: 'Transfer'
+//                 },
+//                 {
+//                     amount: 144.4,
+//                     date: '2022-12-23T07:42:02.383Z',
+//                     source: 'Credit Card'
+//                 },
+//                 {
+//                     amount: -42.5,
+//                     date: '2023-01-28T09:15:04.904Z',
+//                     source: 'Jane Doe'
+//                 },
+//                 {
+//                     amount: 1400,
+//                     date: '2023-04-01T10:17:24.185Z',
+//                     source: 'Direct Deposit'
+//                 },
+//             ]
+//         },
+//     ],
+// }
+
 
 // Display acounts
 const displayAccountsOverview = function (user) {
@@ -221,7 +377,6 @@ const displayAccountsOverview = function (user) {
         accountsRowTransactions.insertAdjacentHTML('beforeend', htmlTransactions);
     })
 }
-displayAccountsOverview(user1);
 
 const displayAccountsDetailed = function (user) {
     accountsRowDetailed.innerHTML = '';
@@ -244,7 +399,6 @@ const displayAccountsDetailed = function (user) {
         accountsRowDetailed.insertAdjacentHTML('beforeend', html);
     })
 }
-displayAccountsDetailed(user1);
 
 
 // Date
@@ -281,7 +435,6 @@ const displayBalance = function (user) {
     labelBalance.textContent = `$ ${totalBalance}`;
     user.totalBalance = totalBalance;
 }
-displayBalance(user1)
 
 
 // Modal
@@ -581,12 +734,9 @@ function movements(user) {
     // Call external toggleActiveAccount
     toggleActiveAccount(user, containerTransactionsAccounts, containerTransactionsAll, sortedAccountMovements);
 }
-movements(user1);
+
 
 // Change name, id of account
-labelName.textContent = user1.owner;
-labelAccountNum.textContent = user1.id;
-
 
 // Hide values separately
 document.querySelectorAll('.section__accounts-row').forEach(row => row.addEventListener('click', function (e) {
@@ -630,46 +780,65 @@ function toggleValue(value, img) {
     }
 }
 
-
-
-
-
-
+function userDisplay(user) {
+    labelName.textContent = user.owner;
+    labelAccountNum.textContent = user.id;
+    displayAccountsOverview(user);
+    displayAccountsDetailed(user);
+    displayBalance(user)
+    movements(user);
+}
 
 // Change section
-sectionBtnList.addEventListener('click', function (e) {
-    const currentBtn = e.target.closest('.dashboard__item');
-    if (!currentBtn) return;
+const changeSectiton = function (user) {
+    sectionBtnList.addEventListener('click', function (e) {
+        const currentBtn = e.target.closest('.dashboard__item');
+        if (!currentBtn) return;
 
-    sectionBtn.forEach(btn => btn.classList.remove('active'));
-    sections.forEach(section => section.classList.remove('active'));
-
-    currentBtn.classList.add('active');
-    document.querySelector(`.dashboard__section--${currentBtn.dataset.btn}`).classList.add('active');
-    dashboardTitle.textContent = currentBtn.dataset.btn.at(0).toUpperCase() + currentBtn.dataset.btn.slice(1);
-
-    movements(user1);
-})
-
-document.querySelectorAll('.section__transactions-btn').forEach(btn => {
-    btn.addEventListener('click', function (e) {
-        e.preventDefault();
-        sectionBtn.forEach(btn => {
-            btn.classList.remove('active')
-            if (btn.dataset.btn === 'transactions') {
-                btn.classList.add('active');
-                dashboardTitle.textContent = btn.dataset.btn.at(0).toUpperCase() + btn.dataset.btn.slice(1);
-            }
-        });
-
+        sectionBtn.forEach(btn => btn.classList.remove('active'));
         sections.forEach(section => section.classList.remove('active'));
-        sectionTransactions.classList.add('active');
-        movements(user1);
-    })
-})
 
+        currentBtn.classList.add('active');
+        document.querySelector(`.dashboard__section--${currentBtn.dataset.btn}`).classList.add('active');
+        dashboardTitle.textContent = currentBtn.dataset.btn.at(0).toUpperCase() + currentBtn.dataset.btn.slice(1);
+
+        movements(user);
+    })
+
+    document.querySelectorAll('.section__transactions-btn').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            sectionBtn.forEach(btn => {
+                btn.classList.remove('active')
+                if (btn.dataset.btn === 'transactions') {
+                    btn.classList.add('active');
+                    dashboardTitle.textContent = btn.dataset.btn.at(0).toUpperCase() + btn.dataset.btn.slice(1);
+                }
+            });
+
+            sections.forEach(section => section.classList.remove('active'));
+            sectionTransactions.classList.add('active');
+            movements(user);
+        })
+    })
+
+}
 
 accountAddOverview.addEventListener('click', function (e) {
     e.preventDefault();
 
 })
+
+
+if (login) {
+    document.querySelector('.login__button').addEventListener('click', function (e) {
+        e.preventDefault();
+        const currentUser = users.find(user => user.email === loginEmail.value);
+        if (currentUser?.password === loginPassword.value) {
+            login.classList.remove('active');
+            dashboard.classList.add('active');
+            userDisplay(currentUser);
+            changeSectiton(currentUser);
+        }
+    })
+}
