@@ -22,6 +22,7 @@ body {
     background-color: #fff;
 
     &.lock {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         overflow: hidden;
     }
 }
@@ -554,8 +555,8 @@ body {
     }
 
     &__content-accounts {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        display: flex;
+        flex-wrap: wrap;
         gap: 2.87em;
     }
 
@@ -787,10 +788,16 @@ body {
     // }
 
     &__accounts-detailed {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        // display: grid;
+        // grid-template-columns: repeat(3, 1fr);
+        // grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+        display: flex;
         gap: 4.06em;
         flex-wrap: wrap;
+    }
+
+    &__accounts-detailed &__block {
+        flex: 0 1 25%;
     }
 
     &__accounts-row &__block {
@@ -1251,19 +1258,20 @@ body {
     }
 }
 
-// @media(max-width: 1440px) {
-//     .dashboard {
-//         &__header{
-//             display: flex;
-//             flex-direction: column;
-//         }
-//         &__section--overview {
-//             display: grid;
-//             grid-template-columns: 1fr;
-//             gap: 10px;
-//             justify-content: initial;
-//             display: flex;
-//             flex-direction: column;
-//         }
-//     }
-// }
+@media(max-width: 1440px) {
+    .dashboard {
+        &__header {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__section--overview {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            justify-content: initial;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

@@ -79,6 +79,7 @@ body {
   background-color: #fff;
 }
 body.lock {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   overflow: hidden;
 }
 
@@ -495,8 +496,8 @@ body.lock {
   padding: 2.6em 2.7em;
 }
 .section__content-accounts {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 2.87em;
 }
 .section__add {
@@ -644,10 +645,12 @@ body.lock {
   gap: 4.06em;
 }
 .section__accounts-detailed {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   gap: 4.06em;
   flex-wrap: wrap;
+}
+.section__accounts-detailed .section__block {
+  flex: 0 1 25%;
 }
 .section__accounts-row .section__block {
   position: relative;
@@ -980,4 +983,19 @@ body.lock {
 }
 .account__message-add {
   height: 35.4375rem;
+}
+
+@media (max-width: 1440px) {
+  .dashboard__header {
+    display: flex;
+    flex-direction: column;
+  }
+  .dashboard__section--overview {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    justify-content: initial;
+    display: flex;
+    flex-direction: column;
+  }
 }
