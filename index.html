@@ -5,40 +5,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fake Bank</title>
+    <title>Reen Bank</title>
     <link rel="stylesheet" href="css/main.css">
     <script defer src="scripts/script.js"></script>
 </head>
 
 <body>
     <div class="wrapper">
-        <div class="overlay"></div>
         <header class="header">
             <div class="header__container">
-                <div class="header__logo logo">Bank</div>
-                <a class="header__button button">Login</a>
+                <div class="header__logo logo">
+                    <img src="images/logo.svg" alt="Logo Reen Bank">
+                    <span>Reen Bank</span>
+                </div>
+                <nav class="header__navigator">
+                    <ul class="header__list">
+                        <li><a class="header__link" href="#">About</a></li>
+                        <li><a class="header__link" href="#">Contact Us</a></li>
+                    </ul>
+                    <a class="header__button button">Login</a>
+                </nav>
             </div>
         </header>
-        <div class="login">
-            <div class="login__container">
-                <div class="login__box">
-                    <h2 class="login__title">Login</h2>
-                    <form action="" method="post" class="login__form">
-                        <div class="login__input">
-                            <label for="login__email">Email</label>
-                            <input type="email" placeholder="Enter your Email" id="login__email" name="login__email" required>
-                        </div>
-                        <div class="login__input">
-                            <label for="login__password">Password</label>
-                            <input type="password" placeholder="Enter your Password" id="login__password"
-                                name="login__password" required>
-                        </div>
-                        <button class="login__button">Login</button>
-                    </form>
-                </div>
-            </div>
-        </div>
         <div class="dashboard">
+            <div class="overlay"></div>
             <div class="dashboard__container">
                 <div class="dashboard__sidebar sticky">
                     <h2 class="dashboard__logo logo">Bank</h2>
@@ -98,7 +88,8 @@
                                                 <option value="Mar 25 - Apr 21, 2025">Mar 25 - Apr 21, 2025</option>
                                                 <option value="Feb 25 - Mar 21, 2025">Feb 25 - Mar 21, 2025</option>
                                             </select>
-                                            <img class="section__arrow" src="images/icons/arrow.svg" alt="arrow down icon">
+                                            <img class="section__arrow" src="images/icons/arrow.svg"
+                                                alt="arrow down icon">
                                         </div>
                                     </div>
                                     <div class="section__content section__content-balance">
@@ -111,12 +102,14 @@
                                         </div>
                                         <div class="section__block">
                                             <h4>Income</h4>
-                                            <p class="section__block-value section__statistics-value--income">$ 54,500.00
+                                            <p class="section__block-value section__statistics-value--income">$
+                                                54,500.00
                                             </p>
                                         </div>
                                         <div class="section__block">
                                             <h4>Expense</h4>
-                                            <p class="section__block-value section__statistics-value--expense">$ 10,000.00
+                                            <p class="section__block-value section__statistics-value--expense">$
+                                                10,000.00
                                             </p>
                                         </div>
                                     </div>
@@ -149,7 +142,8 @@
                                                 <option value="This Month">This Month</option>
                                                 <option value="Last Month">Last Month</option>
                                             </select>
-                                            <img class="section__arrow" src="images/icons/arrow.svg" alt="arrow down icon">
+                                            <img class="section__arrow" src="images/icons/arrow.svg"
+                                                alt="arrow down icon">
                                         </div>
                                     </div>
                                     <div class="section__content">
@@ -243,7 +237,8 @@
                                     </li>
                                 </ul>
                                 <div class="section__banner">
-                                    <div class="section__banner-btn"><img src="images/icons/arrow-banner.svg" alt="arrow">
+                                    <div class="section__banner-btn"><img src="images/icons/arrow-banner.svg"
+                                            alt="arrow">
                                     </div>
                                     <p>
                                         <span>Upgrade to PRO</span>
@@ -310,7 +305,8 @@
                                 <ul
                                     class="section__transactions-list section__transactions-list--accounts section__transactions-list--full">
                                     <li class="section__transactions-info">
-                                        <div class="section__transactions-circle section__transactions-circle--red"></div>
+                                        <div class="section__transactions-circle section__transactions-circle--red">
+                                        </div>
                                         <div class="section__transactions-name">Oluwaben Jamin</div>
                                         <div class="section__transactions-source">Bank Transfer</div>
                                         <div class="section__transactions-date">06.Mar.2023 - 09:39</div>
@@ -318,7 +314,8 @@
                                         <div class="section__transactions-status">Completed</div>
                                     </li>
                                     <li class="section__transactions-info">
-                                        <div class="section__transactions-circle section__transactions-circle--green"></div>
+                                        <div class="section__transactions-circle section__transactions-circle--green">
+                                        </div>
                                         <div class="section__transactions-name">Oluwaben Jamin</div>
                                         <div class="section__transactions-source">Direct Pay</div>
                                         <div class="section__transactions-date">06.Mar.2023 - 09:39</div>
@@ -326,7 +323,8 @@
                                         <div class="section__transactions-status">Completed</div>
                                     </li>
                                     <li class="section__transactions-info">
-                                        <div class="section__transactions-circle section__transactions-circle--red"></div>
+                                        <div class="section__transactions-circle section__transactions-circle--red">
+                                        </div>
                                         <div class="section__transactions-name">Oluwaben Jamin</div>
                                         <div class="section__transactions-source">Bank Transfer</div>
                                         <div class="section__transactions-date">06.Mar.2023 - 09:39</div>
@@ -334,7 +332,8 @@
                                         <div class="section__transactions-status">Completed</div>
                                     </li>
                                     <li class="section__transactions-info">
-                                        <div class="section__transactions-circle section__transactions-circle--green"></div>
+                                        <div class="section__transactions-circle section__transactions-circle--green">
+                                        </div>
                                         <div class="section__transactions-name">Oluwaben Jamin</div>
                                         <div class="section__transactions-source">Direct Pay</div>
                                         <div class="section__transactions-date">06.Mar.2023 - 09:39</div>
@@ -342,7 +341,8 @@
                                         <div class="section__transactions-status">Completed</div>
                                     </li>
                                     <li class="section__transactions-info">
-                                        <div class="section__transactions-circle section__transactions-circle--red"></div>
+                                        <div class="section__transactions-circle section__transactions-circle--red">
+                                        </div>
                                         <div class="section__transactions-name">Oluwaben Jamin</div>
                                         <div class="section__transactions-source">Bank Transfer</div>
                                         <div class="section__transactions-date">06.Mar.2023 - 09:39</div>
@@ -350,7 +350,8 @@
                                         <div class="section__transactions-status">Completed</div>
                                     </li>
                                     <li class="section__transactions-info">
-                                        <div class="section__transactions-circle section__transactions-circle--green"></div>
+                                        <div class="section__transactions-circle section__transactions-circle--green">
+                                        </div>
                                         <div class="section__transactions-name">Oluwaben Jamin</div>
                                         <div class="section__transactions-source">Direct Pay</div>
                                         <div class="section__transactions-date">06.Mar.2023 - 09:39</div>
@@ -358,7 +359,8 @@
                                         <div class="section__transactions-status">Completed</div>
                                     </li>
                                     <li class="section__transactions-info">
-                                        <div class="section__transactions-circle section__transactions-circle--red"></div>
+                                        <div class="section__transactions-circle section__transactions-circle--red">
+                                        </div>
                                         <div class="section__transactions-name">Oluwaben Jamin</div>
                                         <div class="section__transactions-source">Bank Transfer</div>
                                         <div class="section__transactions-date">06.Mar.2023 - 09:39</div>
@@ -366,7 +368,8 @@
                                         <div class="section__transactions-status">Completed</div>
                                     </li>
                                     <li class="section__transactions-info">
-                                        <div class="section__transactions-circle section__transactions-circle--green"></div>
+                                        <div class="section__transactions-circle section__transactions-circle--green">
+                                        </div>
                                         <div class="section__transactions-name">Oluwaben Jamin</div>
                                         <div class="section__transactions-source">Direct Pay</div>
                                         <div class="section__transactions-date">06.Mar.2023 - 09:39</div>
@@ -405,7 +408,8 @@
                                 <ul
                                     class="section__transactions-list section__transactions-list--full section__transactions-list--all">
                                     <li class="section__transactions-info">
-                                        <div class="section__transactions-circle section__transactions-circle--red"></div>
+                                        <div class="section__transactions-circle section__transactions-circle--red">
+                                        </div>
                                         <div class="section__transactions-name">Oluwaben Jamin</div>
                                         <div class="section__transactions-source">Bank Transfer</div>
                                         <div class="section__transactions-date">06.Mar.2023 - 09:39</div>
@@ -413,7 +417,8 @@
                                         <div class="section__transactions-status">Completed</div>
                                     </li>
                                     <li class="section__transactions-info">
-                                        <div class="section__transactions-circle section__transactions-circle--green"></div>
+                                        <div class="section__transactions-circle section__transactions-circle--green">
+                                        </div>
                                         <div class="section__transactions-name">Oluwaben Jamin</div>
                                         <div class="section__transactions-source">Direct Pay</div>
                                         <div class="section__transactions-date">06.Mar.2023 - 09:39</div>
@@ -421,7 +426,8 @@
                                         <div class="section__transactions-status">Completed</div>
                                     </li>
                                     <li class="section__transactions-info">
-                                        <div class="section__transactions-circle section__transactions-circle--red"></div>
+                                        <div class="section__transactions-circle section__transactions-circle--red">
+                                        </div>
                                         <div class="section__transactions-name">Oluwaben Jamin</div>
                                         <div class="section__transactions-source">Bank Transfer</div>
                                         <div class="section__transactions-date">06.Mar.2023 - 09:39</div>
@@ -429,7 +435,8 @@
                                         <div class="section__transactions-status">Completed</div>
                                     </li>
                                     <li class="section__transactions-info">
-                                        <div class="section__transactions-circle section__transactions-circle--green"></div>
+                                        <div class="section__transactions-circle section__transactions-circle--green">
+                                        </div>
                                         <div class="section__transactions-name">Oluwaben Jamin</div>
                                         <div class="section__transactions-source">Direct Pay</div>
                                         <div class="section__transactions-date">06.Mar.2023 - 09:39</div>
@@ -437,7 +444,8 @@
                                         <div class="section__transactions-status">Completed</div>
                                     </li>
                                     <li class="section__transactions-info">
-                                        <div class="section__transactions-circle section__transactions-circle--red"></div>
+                                        <div class="section__transactions-circle section__transactions-circle--red">
+                                        </div>
                                         <div class="section__transactions-name">Oluwaben Jamin</div>
                                         <div class="section__transactions-source">Bank Transfer</div>
                                         <div class="section__transactions-date">06.Mar.2023 - 09:39</div>
@@ -445,7 +453,8 @@
                                         <div class="section__transactions-status">Completed</div>
                                     </li>
                                     <li class="section__transactions-info">
-                                        <div class="section__transactions-circle section__transactions-circle--green"></div>
+                                        <div class="section__transactions-circle section__transactions-circle--green">
+                                        </div>
                                         <div class="section__transactions-name">Oluwaben Jamin</div>
                                         <div class="section__transactions-source">Direct Pay</div>
                                         <div class="section__transactions-date">06.Mar.2023 - 09:39</div>
@@ -453,7 +462,8 @@
                                         <div class="section__transactions-status">Completed</div>
                                     </li>
                                     <li class="section__transactions-info">
-                                        <div class="section__transactions-circle section__transactions-circle--red"></div>
+                                        <div class="section__transactions-circle section__transactions-circle--red">
+                                        </div>
                                         <div class="section__transactions-name">Oluwaben Jamin</div>
                                         <div class="section__transactions-source">Bank Transfer</div>
                                         <div class="section__transactions-date">06.Mar.2023 - 09:39</div>
@@ -461,7 +471,8 @@
                                         <div class="section__transactions-status">Completed</div>
                                     </li>
                                     <li class="section__transactions-info">
-                                        <div class="section__transactions-circle section__transactions-circle--green"></div>
+                                        <div class="section__transactions-circle section__transactions-circle--green">
+                                        </div>
                                         <div class="section__transactions-name">Oluwaben Jamin</div>
                                         <div class="section__transactions-source">Direct Pay</div>
                                         <div class="section__transactions-date">06.Mar.2023 - 09:39</div>
@@ -595,10 +606,232 @@
                 </div>
             </div>
         </div>
-        <main class="main">
-            <div class="main__container"></div>
+        <main class="page">
+            <section class="hero">
+                <div class="hero">
+                    <div class="hero__container">
+                        <div class="hero__content">
+                            <h2 class="hero__subtitle">Reen Bank</h2>
+                            <h1 class="hero__title">Experience <br>
+                                hassle-free banking</h1>
+                            <p class="hero__text">
+                                Experience simple, secure, and stress-free banking. Say goodbye to long queues and
+                                complex
+                                procedures and hello to hassle-free banking with Reen Bank.
+                            </p>
+                            <div class="hero__buttons">
+                                <a href="#" class="hero__button button-green button">Get Started</a>
+                                <a href="#" class="hero__button button">Learn More <span
+                                        class="icon-fi-br-arrow-small-right"></span></a>
+                            </div>
+                        </div>
+                        <div class="hero__image">
+                            <img src="images/hero.png" alt="two bank cards with Reebank design">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="services">
+                <div class="services__container">
+                    <h2 class="services__title">Services</h2>
+                    <ul class="services__list">
+                        <li class="services__item">
+                            <div class="services__img">
+                                <img src="images/services/savings.svg" alt="red savings icon">
+                            </div>
+                            <div class="services__content">
+                                <h3 class="services__item-title">Savings accounts</h3>
+                                <p class="services__item-text">
+                                    Reen Bank could offer a variety of savings accounts with different interest rates
+                                    and terms, allowing customers to save money and earn interest over time. These
+                                    accounts could include features like automatic transfers, overdraft protection, and
+                                    mobile banking access.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="services__item">
+                            <div class="services__img">
+                                <img src="images/services/personal.svg" alt="red personal loans icon">
+                            </div>
+                            <div class="services__content">
+                                <h3 class="services__item-title">Personal loans</h3>
+                                <p class="services__item-text">
+                                    Reen Bank could offer personal loans for a variety of purposes, such as debt
+                                    consolidation, home improvements, or major purchases. Customers could apply online
+                                    and receive a decision quickly, with flexible repayment terms and competitive
+                                    interest rates.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="services__item">
+                            <div class="services__img">
+                                <img src="images/services/credit-card.svg" alt="red credit card icon">
+                            </div>
+                            <div class="services__content">
+                                <h3 class="services__item-title">Credit cards</h3>
+                                <p class="services__item-text">
+                                    Reen Bank could offer credit cards with different rewards programs and benefits,
+                                    such as cash back, travel rewards, or low interest rates. Customers could manage
+                                    their cards online and receive alerts for suspicious activity or due dates.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="services__item">
+                            <div class="services__img">
+                                <img src="images/services/bill.svg" alt="red money icon">
+                            </div>
+                            <div class="services__content">
+                                <h3 class="services__item-title">Investment services</h3>
+                                <p class="services__item-text">
+                                    Reen Bank could offer investment services for customers looking to grow their wealth
+                                    over time. These services could include mutual funds, exchange-traded funds, and
+                                    other investment vehicles, with access to professional financial advice and
+                                    analysis.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="services__item">
+                            <div class="services__img">
+                                <img src="images/services/bill.svg" alt="red bill icon">
+                            </div>
+                            <div class="services__content">
+                                <h3 class="services__item-title">Online bill pay</h3>
+                                <p class="services__item-text">
+                                    Reen Bank could offer a convenient online bill pay service, allowing customers to
+                                    pay bills and manage expenses from their computer or mobile device. This service
+                                    could include features like automatic payments, bill reminders, and customizable
+                                    payment schedules.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="services__item">
+                            <div class="services__img">
+                                <img src="images/services/deal.svg" alt="red shake hands icon">
+                            </div>
+                            <div class="services__content">
+                                <h3 class="services__item-title">Business banking</h3>
+                                <p class="services__item-text">
+                                    Reen Bank could offer a range of banking services for small and medium-sized
+                                    businesses, including checking accounts, business loans, merchant services, and cash
+                                    management tools. These services could help businesses streamline their financial
+                                    operations and grow their operations over time.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="faqs"></section>
+            <section class="support">
+                <div class="support__container">
+                    <h2 class="support__title">Supported by various finance services</h2>
+                    <ul class="support__list">
+                        <li class="support__item">
+                            <img src="images/icons/mastercard.svg" alt="mastercard icon">
+                        </li>
+                        <li class="support__item">
+                            <img src="images/icons/visa.svg" alt="visa icon">
+                        </li>
+                        <li class="support__item">
+                            <img src="images/icons/paypal.svg" alt="paypal icon">
+                        </li>
+                        <li class="support__item">
+                            <img src="images/icons/payoneer.svg" alt="payoneer icon">
+                        </li>
+                    </ul>
+                </div>
+            </section>
         </main>
         <footer class="footer"></footer>
+        <div class="login">
+            <div class="login__container">
+                <div class="login__content">
+                    <div class="login__logo logo">
+                        <img src="images/logo.svg" alt="Logo Reen Bank">
+                        <span>Reen Bank</span>
+                    </div>
+                    <div class="login__box--text">
+                        <h2 class="login__subtitle hero__subtitle">Reen Bank</h2>
+                        <h2 class="login__title hero__title">Welcome Back</h2>
+                        <p class="login__text hero__text">
+                            Enter Your Details to login to your Banking Dashboard again!
+                        </p>
+                    </div>
+                    <div class="login__socials socials">
+                        <ul class="socials__list">
+                            <li class="socials__item"><span class="icon-facebook"></span></li>
+                            <li class="socials__item"><span class="icon-instagram"></span></li>
+                            <li class="socials__item"><span class="icon-twitter"></span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="login__boxes">
+                    <div class="login__box active">
+                        <h3 class="login__form-title">Login</h3>
+                        <form action="" method="post" class="login__form">
+                            <div class="login__input">
+                                <label for="login__email">Email</label>
+                                <div class="login__input-box">
+                                    <input type="email" placeholder="Enter your Email" id="login__email" name="login__email"
+                                        value="test@email.com" required>
+                                    <span class="login__input-icon icon-fi-rr-envelope"></span>
+                                </div>
+                            </div>
+                            <div class="login__input">
+                                <label for="login__password">Password</label>
+                                <div class="login__input-box login__password-box">
+                                    <input type="password" placeholder="Enter your Password" id="login__password"
+                                        name="login__password" value="test" required>
+                                    <div class="login__password-forgot">
+                                        Forgot?
+                                    </div>
+                                    <span class="login__input-icon icon-fi-rr-lock"></span>
+                                </div>
+                            </div>
+                            <button class="login__button">Login</button>
+                        </form>
+                        <div class="login__question">
+                            Don’t Have an Account?
+                            <button class="register__question-btn login__question-btn--register">Register</button>
+                        </div>
+                    </div>
+                    <div class="register__box">
+                        <h3 class="login__form-title register__form-title">Register</h3>
+                        <form action="" method="post" class="register__form">
+                            <div class="login__input">
+                                <label for="register__name">Name</label>
+                                <div class="login__input-box">
+                                    <input type="email" placeholder="Enter name here" id="register__name"
+                                        name="register__name" required>
+                                    <span class="login__input-icon icon-fi-rr-user"></span>
+                                </div>
+                            </div>
+                            <div class="login__input">
+                                <label for="register__email">Email</label>
+                                <div class="login__input-box">
+                                    <input type="email" placeholder="Enter your Email" id="register__email"
+                                        name="register__email" required>
+                                    <span class="login__input-icon icon-fi-rr-envelope"></span>
+                                </div>
+                            </div>
+                            <div class="login__input">
+                                <label for="register__password">Password</label>
+                                <div class="login__input-box register__password-box">
+                                    <input type="password" placeholder="Enter your Password" id="register__password"
+                                        name="register__password" required>
+                                    <span class="login__input-icon icon-fi-rr-lock"></span>
+                                </div>
+                            </div>
+                            <button class="register__button ">Register</button>
+                        </form>
+                        <div class="register__question">
+                            Already Have an Account?
+                            <button class="register__question-btn register__question-btn--login">Login</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 

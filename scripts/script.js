@@ -9,7 +9,6 @@ const labelSumIn = document.querySelectorAll('.section__statistics-value--income
 const labelSumOut = document.querySelectorAll('.section__statistics-value--expense')
 const labelBalance = document.querySelector('.total-balance');
 const inputEmail = document.getElementById('login__email');
-const inputPassowrd = document.getElementById('login__password');
 const loginBtn = document.querySelector('.login__button');
 const containerTransactionsOverview = document.querySelector('.section__transactions-list');
 const containerTransactionsAll = document.querySelector('.section__transactions-list--all');
@@ -28,6 +27,8 @@ const overlay = document.querySelector('.overlay');
 const accountsRowDetailed = document.querySelector('.section__accounts-detailed');
 const modalFund = document.querySelector('.account__modal-fund');
 const accountAddOverview = document.querySelector('.section__accound-add');
+const modalWithdraw = document.querySelector('.account__modal-withdraw');
+const modalAdd = document.querySelector('.account__modal-add');
 
 // Login
 document.querySelector('.header__button').addEventListener('click', (e) => {
@@ -192,164 +193,7 @@ const users = [
     }
 ]
 
-
-// Accounts
-
-// const user1 = {
-//     owner: 'Joe Doe',
-//     email: 'test@email.com',
-//     id: '1234567890',
-//     password: 'test',
-//     accounts: [
-//         {
-//             name: 'Main Account',
-//             currency: 'USD',
-//             movements: [
-//                 {
-//                     amount: 200,
-//                     date: '2019-11-18T21:31:17.178Z',
-//                     source: 'Direct Deposit'
-//                 },
-//                 {
-//                     amount: 455.23,
-//                     date: '2019-12-23T07:42:02.383Z',
-//                     source: 'Credit Card'
-//                 },
-//                 {
-//                     amount: 4244.23242424,
-//                     date: '2019-12-23T07:42:02.383Z',
-//                     source: 'Credit Card'
-//                 },
-//                 {
-//                     amount: -306.5,
-//                     date: '2020-01-28T09:15:04.904Z',
-//                     source: 'Jane Doe'
-//                 },
-//                 {
-//                     amount: 25000,
-//                     date: '2020-04-01T10:17:24.185Z',
-//                     source: 'Direct Deposit'
-//                 },
-//                 {
-//                     amount: -642.21,
-//                     date: '2020-05-08T14:11:59.604Z',
-//                     source: 'Credit Card'
-//                 },
-//                 {
-//                     amount: -133.9,
-//                     date: '2020-05-27T17:01:17.194Z',
-//                     source: 'Jane Doe'
-//                 },
-//                 {
-//                     amount: 79.97,
-//                     date: '2020-07-11T23:36:17.929Z',
-//                     source: 'Direct Deposit'
-//                 },
-//                 {
-//                     amount: 1300,
-//                     date: '2020-07-13T10:51:36.790Z',
-//                     source: 'Credit Card'
-//                 },
-//                 {
-//                     amount: 1300,
-//                     date: '2020-07-14T10:51:36.790Z',
-//                     source: 'Credit Card'
-//                 },
-//                 {
-//                     amount: 1300,
-//                     date: '2020-07-15T10:51:36.790Z',
-//                     source: 'Credit Card'
-//                 },
-//                 {
-//                     amount: -5300,
-//                     date: '2020-07-15T11:51:36.790Z',
-//                     source: 'Credit Card'
-//                 },
-//                 {
-//                     amount: 310.5,
-//                     date: '2020-07-15T12:51:36.790Z',
-//                     source: 'Credit Card'
-//                 },
-//             ]
-//         },
-
-//         {
-//             name: 'Savings Account',
-//             currency: 'USD',
-//             movements: [
-//                 {
-//                     amount: 400,
-//                     date: '2020-11-18T21:31:17.178Z',
-//                     source: 'Direct Deposit'
-//                 },
-//                 {
-//                     amount: 953.2,
-//                     date: '2020-12-23T07:42:02.383Z',
-//                     source: 'Credit Card'
-//                 },
-//                 {
-//                     amount: -42.5,
-//                     date: '2021-01-28T09:15:04.904Z',
-//                     source: 'Jane Doe'
-//                 },
-//                 {
-//                     amount: 2400,
-//                     date: '2021-04-01T10:17:24.185Z',
-//                     source: 'Direct Deposit'
-//                 },
-//                 {
-//                     amount: -642.21,
-//                     date: '2021-05-08T14:11:59.604Z',
-//                     source: 'Credit Card'
-//                 },
-//                 {
-//                     amount: -213.9,
-//                     date: '2021-05-27T17:01:17.194Z',
-//                     source: 'Jane Doe'
-//                 },
-//                 {
-//                     amount: 719.97,
-//                     date: '2021-07-11T23:36:17.929Z',
-//                     source: 'Direct Deposit'
-//                 },
-//                 {
-//                     amount: 2743,
-//                     date: '2021-07-12T10:51:36.790Z',
-//                     source: 'Credit Card'
-//                 }
-//             ]
-//         },
-//         {
-//             name: 'Holiday Savings',
-//             currency: 'USD',
-//             movements: [
-//                 {
-//                     amount: 155.5,
-//                     date: '2022-11-18T21:31:17.178Z',
-//                     source: 'Transfer'
-//                 },
-//                 {
-//                     amount: 144.4,
-//                     date: '2022-12-23T07:42:02.383Z',
-//                     source: 'Credit Card'
-//                 },
-//                 {
-//                     amount: -42.5,
-//                     date: '2023-01-28T09:15:04.904Z',
-//                     source: 'Jane Doe'
-//                 },
-//                 {
-//                     amount: 1400,
-//                     date: '2023-04-01T10:17:24.185Z',
-//                     source: 'Direct Deposit'
-//                 },
-//             ]
-//         },
-//     ],
-// }
-
-
-// Display acounts
+// Display acounts overview
 const displayAccountsOverview = function (user) {
     const accountsRowOverview = document.querySelector('.section__content-accounts');
     const accountsRowTransactions = document.querySelector('.section__accounts-transactions');
@@ -377,7 +221,7 @@ const displayAccountsOverview = function (user) {
         accountsRowTransactions.insertAdjacentHTML('beforeend', htmlTransactions);
     })
 }
-
+// Display acounts detailed
 const displayAccountsDetailed = function (user) {
     accountsRowDetailed.innerHTML = '';
 
@@ -441,13 +285,14 @@ const displayBalance = function (user) {
 const modalActive = function (modal) {
     modal.classList.add('active');
     overlay.classList.add('active');
-    document.body.classList.add('lock');
+    // document.body.classList.add('lock');
 }
 const modalRemoveActive = function (modal) {
     modal.classList.remove('active');
     overlay.classList.remove('active');
-    document.body.classList.remove('lock');
+    // document.body.classList.remove('lock');
 }
+
 // Hide modal by esc
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
@@ -461,6 +306,9 @@ overlay.addEventListener('click', () => {
     const activeModal = document.querySelector('.modal.active');
     if (activeModal) modalRemoveActive(activeModal);
 });
+
+
+// Modals functions
 const modalFunc = function (modal) {
     modalActive(modal);
     const cancelBtn = modal.querySelector('.account__button-cancel');
@@ -472,16 +320,17 @@ const modalFunc = function (modal) {
     };
 }
 
+// Modal message
 const modalMessage = function (message, amount, user) {
     overlay.classList.add('active');
     message.classList.add('active');
-    body.classList.add('lock');
+    // body.classList.add('lock');
 
     message.querySelector('button').addEventListener('click', e => {
         e.preventDefault();
         overlay.classList.remove('active');
         message.classList.remove('active');
-        body.classList.remove('lock');
+        // body.classList.remove('lock');
     })
 
     if (message.classList.contains('account__message-add')) {
@@ -491,7 +340,7 @@ const modalMessage = function (message, amount, user) {
             e.preventDefault();
             overlay.classList.remove('active');
             message.classList.remove('active');
-            body.classList.remove('lock');
+            // body.classList.remove('lock');
             modalFunc(modalFund);
             accountFund(modalFund, user, newAccount);
         })
@@ -499,8 +348,16 @@ const modalMessage = function (message, amount, user) {
     } else message.querySelector('span').textContent = `$${amount}`;
 }
 
+// Display UI
+const displayUI = function (user) {
+    movements(user);
+    displayBalance(user)
+    displayAccountsDetailed(user);
+    displayAccountsOverview(user);
+}
+
 // Fund Acounts
-function accountFund(modal, user, currentAccount) {
+const accountFund = function (modal, user, currentAccount) {
     const radioBtns = modal.querySelectorAll('.account__input-radio');
     const btnFund = modal.querySelector('.account__button-green');
     const message = document.querySelector('.account__message-fund');
@@ -540,15 +397,13 @@ function accountFund(modal, user, currentAccount) {
             // Reset input, close modal, update UI
             if (input) input.value = '';
             modalRemoveActive(modal);
-            movements(user);
-            displayBalance(user)
-            displayAccountsDetailed(user);
-            displayAccountsOverview(user);
+            displayUI(user);
             modalMessage(message, amountValue);
         }
     });
 };
 
+// Withdraw Acounts
 const accountWithdraw = function (modal, user, currentAccount) {
     const btnWithdraw = modal.querySelector('.account__button-green');
     const newBtnWithdraw = btnWithdraw.cloneNode(true);
@@ -575,25 +430,23 @@ const accountWithdraw = function (modal, user, currentAccount) {
 
             // Reset input, close modal, update UI
             if (input) input.value = '';
-            movements(user);
             modalRemoveActive(modal);
-            displayBalance(user)
-            displayAccountsDetailed(user);
-            displayAccountsOverview(user);
+            displayUI(user);
             modalMessage(message, amountValue);
         }
     });
 }
 
+// Add Account
 const accountAdd = function (modal, user) {
-    const btnWithdraw = modal.querySelector('.account__button-green');
-    const newBtnWithdraw = btnWithdraw.cloneNode(true);
-    btnWithdraw.parentNode.replaceChild(newBtnWithdraw, btnWithdraw);
+    const btnAdd = modal.querySelector('.account__button-green');
+    const newBtnAdd = btnAdd.cloneNode(true);
+    btnAdd.parentNode.replaceChild(newBtnAdd, btnAdd);
 
     const message = document.querySelector('.account__message-add');
 
     // Handle fund button click only once
-    newBtnWithdraw.addEventListener('click', function (e) {
+    newBtnAdd.addEventListener('click', function (e) {
         e.preventDefault();
 
         const input = modal.querySelector('input[type="text"]');
@@ -610,21 +463,23 @@ const accountAdd = function (modal, user) {
 
             // Reset input, close modal, update UI
             if (input) input.value = '';
-            movements(user);
             modalRemoveActive(modal);
-            displayBalance(user)
-            displayAccountsDetailed(user);
-            displayAccountsOverview(user);
+            displayUI(user);
             modalMessage(message, accountName, user);
         }
     });
 }
 
+// Add account button at overview section
+accountAddOverview.addEventListener('click', function (e) {
+    e.preventDefault();
+    modalFunc(modalAdd);
+    accountAdd(modalAdd, currentUser);
+})
+
+// Toggle active account
 const toggleActiveAccount = function (user, containerTransactionsAccounts, containerTransactionsAll, sortedAccountMovements) {
     const currentRow = document.querySelector('.dashboard__section.active').querySelector('.section__accounts-row')
-
-    const modalWithdraw = document.querySelector('.account__modal-withdraw');
-    const modalAdd = document.querySelector('.account__modal-add');
 
     if (!currentRow) return;
 
@@ -735,8 +590,26 @@ function movements(user) {
     toggleActiveAccount(user, containerTransactionsAccounts, containerTransactionsAll, sortedAccountMovements);
 }
 
+// Hide / Show values
+const toggleValue = function (value, img) {
+    if (value.dataset.originalValue) {
+        // Restore
+        value.textContent = value.dataset.originalValue;
+        value.dataset.originalValue = '';
+    } else {
+        // Mask
+        value.dataset.originalValue = value.textContent;
+        value.textContent = 'XXXXXXX';
+    }
 
-// Change name, id of account
+    // Optional: toggle icon
+    if (value.dataset.originalValue) {
+        img.src = 'images/icons/eye-open.svg';
+    } else {
+
+        img.src = 'images/icons/eye-closed.svg';
+    }
+}
 
 // Hide values separately
 document.querySelectorAll('.section__accounts-row').forEach(row => row.addEventListener('click', function (e) {
@@ -760,34 +633,6 @@ document.querySelector('.section__hide').addEventListener('click', function (e) 
         toggleValue(value, img);
     })
 })
-function toggleValue(value, img) {
-    if (value.dataset.originalValue) {
-        // Restore
-        value.textContent = value.dataset.originalValue;
-        value.dataset.originalValue = '';
-    } else {
-        // Mask
-        value.dataset.originalValue = value.textContent;
-        value.textContent = 'XXXXXXX';
-    }
-
-    // Optional: toggle icon
-    if (value.dataset.originalValue) {
-        img.src = 'images/icons/eye-open.svg';
-    } else {
-
-        img.src = 'images/icons/eye-closed.svg';
-    }
-}
-
-function userDisplay(user) {
-    labelName.textContent = user.owner;
-    labelAccountNum.textContent = user.id;
-    displayAccountsOverview(user);
-    displayAccountsDetailed(user);
-    displayBalance(user)
-    movements(user);
-}
 
 // Change section
 const changeSectiton = function (user) {
@@ -824,21 +669,41 @@ const changeSectiton = function (user) {
 
 }
 
-accountAddOverview.addEventListener('click', function (e) {
-    e.preventDefault();
-
-})
-
-
+// Login / Register
+let currentUser;
 if (login) {
+    const questionRegisterBtn = document.querySelector('.login__question-btn--register');
+    const questionLoginBtn = document.querySelector('.register__question-btn--login');
+    const loginTitle = document.querySelector('.login__title');
+    const loginText = document.querySelector('.login__text');
+    const loginBox = document.querySelector('.login__box');
+    const registerBox = document.querySelector('.register__box');
     document.querySelector('.login__button').addEventListener('click', function (e) {
         e.preventDefault();
-        const currentUser = users.find(user => user.email === loginEmail.value);
+        currentUser = users.find(user => user.email === loginEmail.value);
         if (currentUser?.password === loginPassword.value) {
             login.classList.remove('active');
             dashboard.classList.add('active');
-            userDisplay(currentUser);
+            body.classList.add('lock');
+            document.querySelector('main').style.display = 'none';
+            labelName.textContent = currentUser.owner;
+            labelAccountNum.textContent = currentUser.id;
+            displayUI(currentUser);
             changeSectiton(currentUser);
         }
+    })
+    questionRegisterBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        loginTitle.innerHTML = document.querySelector('.hero__title').innerHTML;
+        loginText.innerHTML = document.querySelector('.hero__text').innerHTML;
+        loginBox.classList.remove('active');
+        registerBox.classList.add('active');
+    })
+    questionLoginBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        loginTitle.innerHTML = 'Welcome Back';
+        loginText.innerHTML = 'Enter Your Details to login to your Banking Dashboard again!';
+        loginBox.classList.add('active');
+        registerBox.classList.remove('active');
     })
 }
