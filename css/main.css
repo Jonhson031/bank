@@ -111,9 +111,12 @@ img {
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 0.8832rem + 0.5839vw, 1.5rem);
   color: #252525;
   font-family: "DM Sans";
-  font-size: 3em;
+  font-size: 2.5em;
   font-weight: 700;
 }
 
@@ -143,9 +146,6 @@ img {
   flex-wrap: wrap;
 }
 .header__logo {
-  display: flex;
-  align-items: center;
-  gap: clamp(1rem, 0.8832rem + 0.5839vw, 1.5rem);
   flex: 0 1 24.392857%;
   /* 393/1680 */
 }
@@ -313,6 +313,7 @@ img {
   flex-wrap: wrap;
   gap: 2.5em;
 }
+
 .login,
 .register {
   position: fixed;
@@ -323,6 +324,7 @@ img {
   left: 0;
   transition: all 1s;
   overflow: auto;
+  z-index: -1;
   background-color: #D4F3E7;
 }
 .login.active,
@@ -454,6 +456,18 @@ img {
   font-size: 1.5rem;
   margin-right: 1.6rem;
 }
+.login__error,
+.register__error {
+  font-size: 0.9rem;
+  color: red;
+  font-family: "DM Sans";
+  display: none;
+}
+.login__error-password--requirements,
+.register__error-password--requirements {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
 .login__password-forgot,
 .register__password-forgot {
   position: relative;
@@ -527,11 +541,12 @@ img {
   background-color: #fff;
   transition: all 1s;
   overflow: auto;
-  z-index: 3;
+  z-index: -1;
 }
 .dashboard.active {
   opacity: 1;
   visibility: visible;
+  z-index: 3;
 }
 .dashboard__container {
   position: relative;
@@ -1085,6 +1100,124 @@ img {
   flex: 0 1 33%;
 }
 
+.section__profile-content {
+  width: 22.3125rem;
+  margin: 0 auto;
+}
+.section__profile-image {
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+  margin: 0 auto;
+}
+.section__profile-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+.section__profile-image-edit {
+  position: absolute;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  top: 0;
+  right: 0;
+  background-color: #D4D4D4;
+  display: flex;
+  align-items: center;
+}
+.section__profile-image-edit input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+.section__profile-image-edit input #file-upload-button {
+  display: none;
+}
+.section__profile-image-edit input[type=file] {
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background: none;
+  color: transparent;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  cursor: pointer;
+}
+.section__profile-image-edit input[type=file]::file-selector-button {
+  display: none;
+}
+.section__profile-image-edit span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.section__profile-name {
+  margin-top: 1.5rem;
+  margin-bottom: 0.81rem;
+  color: #252525;
+  font-family: "DM Sans";
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+}
+.section__profile-subscription {
+  color: #46237A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "DM Sans";
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  border-radius: 0.5rem;
+  background-color: #E4D2FF;
+  width: 7.1875rem;
+  height: 2.3125rem;
+  margin: 0 auto;
+}
+.section__profile-list {
+  display: grid;
+  gap: 2rem;
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem;
+}
+.section__profile-list li:last-child {
+  border: none;
+  padding: 0;
+}
+.section__profile-item {
+  color: #252525;
+  font-family: "DM Sans";
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #D9D9D9;
+}
+.section__profile-item::after {
+  content: "";
+}
+.section__profile-item span {
+  display: block;
+  color: #33B786;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.section__profile-button {
+  text-align: center;
+}
+
 .account__modal, .account__message {
   position: fixed;
   top: 50%;
@@ -1318,6 +1451,10 @@ img {
     grid-template-columns: auto auto;
     grid-template-rows: auto auto;
   }
+  .section__accounts-row {
+    -moz-column-gap: 0;
+         column-gap: 0;
+  }
   .login__container {
     flex-wrap: wrap;
     gap: 4rem;
@@ -1354,14 +1491,18 @@ img {
     /* ---- Row 1 ---- */
     /* ---- Row 2 ---- */
   }
+  .section__accounts-row {
+    grid-template-columns: 1fr;
+  }
   .section__content-accounts .section__block {
     border-radius: 0.75rem;
     background: #D4F3E7;
     padding: 1.5em 1.5em;
   }
   .section__accounts-transactions {
-    grid-template-columns: 0.9fr;
+    grid-template-columns: 1fr;
     gap: 2em;
+    max-width: 100%;
   }
   .section__statistics-row {
     display: grid;

@@ -470,7 +470,7 @@ const accountAdd = function (modal, user) {
     });
 }
 
-// Add account button at overview section
+// Account Add button at overview section
 accountAddOverview.addEventListener('click', function (e) {
     e.preventDefault();
     modalFunc(modalAdd);
@@ -707,3 +707,90 @@ if (login) {
         registerBox.classList.remove('active');
     })
 }
+
+// Implement form validation 
+const userName = document.getElementById('register__name');
+const userEmail = document.getElementById('register__email');
+const userPassword = document.getElementById('register__password');
+
+// Error elements
+const nameError = document.querySelector('.register__error-name');
+const emailError = document.querySelector('.register__error-email');
+const passwordError = document.querySelector('.register__error-password');
+
+const validateForm = function () {
+    let valid = true;
+
+    // Name validation
+    if (!userName.value.trim()) {
+        nameError.style.display = 'block';
+    } else {
+        nameError.style.display = 'none';
+    }
+
+    // Email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(userEmail.value.trim())) {
+        emailError.style.display = 'block';
+        valid = false;
+    } else {
+        emailError.style.display = 'none';
+    }
+
+    // Password validation
+    if (!userPassword.value.trim() || userPassword.value.length < 8) {
+        passwordError.style.display = 'block';
+        valid = false;
+    } else {
+        passwordError.style.display = 'none';
+    }
+    return valid;
+}
+
+const registerUser = function() {
+    if (!validateForm()) return;
+
+    // Check if email already exists
+    if (users.some(u => u.email === userEmail.value.trim())) {
+        emailError.textContent = 'Email already registered.';
+        emailError.style.display = 'block';
+        return;
+    }
+
+    // If all valid, create user
+    const newUser = {
+        owner: userName.value,
+        email: userEmail.value,
+        id: Date.now().toString().slice(-10),
+        password: userPassword.value,
+        accounts: [
+            {
+                name: 'Main Account',
+                currency: 'USD',
+                movements: []
+            },
+        ],
+    };
+    users.push(newUser);
+    console.log(users);
+
+    // Clear form
+    userName.value = '';
+    userEmail.value = '';
+    userPassword.value = '';
+}
+
+
+
+const registerInputs = document.querySelector('.register__form').querySelectorAll('input');
+registerInputs.forEach(input => {
+    input.addEventListener('input', function () {
+        // Hide error message on input
+        validateForm();
+    })
+})
+document.querySelector('.register__button').addEventListener('click', function (e) {
+    e.preventDefault();
+    registerUser();
+    // displayUI(currentUser);
+});

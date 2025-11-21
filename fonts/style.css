@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?xgdzku');
-  src:  url('fonts/icomoon.eot?xgdzku#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?xgdzku') format('truetype'),
-    url('fonts/icomoon.woff?xgdzku') format('woff'),
-    url('fonts/icomoon.svg?xgdzku#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?nhqps9');
+  src:  url('fonts/icomoon.eot?nhqps9#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?nhqps9') format('truetype'),
+    url('fonts/icomoon.woff?nhqps9') format('woff'),
+    url('fonts/icomoon.svg?nhqps9#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-fi-rr-pencil:before {
+  content: "\e900";
+  color: #000;
+}
 .icon-fi-rr-lock:before {
   content: "\e903";
   color: #b8b8b8;
@@ -39,7 +43,7 @@
 }
 .icon-fi-rr-user:before {
   content: "\e906";
-  color: #b8b8b8;
+  color: #555;
 }
 .icon-fi-rr-credit-card:before {
   content: "\e907";

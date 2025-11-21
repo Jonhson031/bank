@@ -56,9 +56,12 @@ img {
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 0.8832rem + 0.5839vw, 1.5rem);
     color: #252525;
     font-family: "DM Sans";
-    font-size: 3em;
+    font-size: 2.5em;
     font-weight: 700;
 }
 
@@ -90,9 +93,6 @@ img {
     }
 
     &__logo {
-        display: flex;
-        align-items: center;
-        gap: clamp(1rem, 0.8832rem + 0.5839vw, 1.5rem);
         flex: 0 1 24.392857%;
         /* 393/1680 */
     }
@@ -333,7 +333,6 @@ img {
 
     // .support__item
 
-    &__item {}
 }
 
 
@@ -350,6 +349,7 @@ img {
     left: 0;
     transition: all 1s;
     overflow: auto;
+    z-index: -1;
 
     &.active {
         opacity: 1;
@@ -389,6 +389,7 @@ img {
     &__text {
         margin-bottom: 0;
     }
+
     // .login__box
     &__boxes {
         width: 45.38%;
@@ -497,6 +498,18 @@ img {
         margin-right: 1.6rem;
     }
 
+    &__error {
+        font-size: 0.9rem;
+        color: red;
+        font-family: "DM Sans";
+        display: none;
+    }
+
+    &__error-password--requirements {
+        // margin-top: 0.5rem;
+        list-style-type: disc;
+        padding-left: 1.5rem;
+    }
 
     // .login__password-forgot
 
@@ -586,11 +599,12 @@ img {
     background-color: #fff;
     transition: all 1s;
     overflow: auto;
-    z-index: 3;
+    z-index: -1;
+
     &.active {
         opacity: 1;
         visibility: visible;
-
+        z-index: 3;
     }
 
     // .dashboard__container
@@ -801,6 +815,7 @@ img {
     }
 }
 
+// ? Section styles + overview section
 .section {
 
     // .section__row
@@ -1154,6 +1169,7 @@ img {
     }
 }
 
+// ? Accounts section
 .section {
     // ? section accounts
 
@@ -1398,6 +1414,7 @@ img {
     }
 }
 
+// ? Transactions section
 .section {
 
     // ? section transactions
@@ -1411,6 +1428,165 @@ img {
 
     &__transactions-all>&__row>&__block {
         flex: 0 1 33%;
+    }
+}
+
+// ? Profile section
+.section {
+
+    // .section__profile-content
+
+    &__profile-content {
+        width: 22.3125rem;
+        margin: 0 auto;
+    }
+
+    // .section__profile-image
+
+    &__profile-image {
+        position: relative;
+        width: 10rem;
+        height: 10rem;
+        margin: 0 auto;
+
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    }
+
+    // .section__profile-image-edit
+
+    &__profile-image-edit {
+        position: absolute;
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+        top: 0;
+        right: 0;
+        background-color: #D4D4D4;
+        display: flex;
+        align-items: center;
+
+        & input {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+
+            & #file-upload-button {
+                display: none;
+            }
+        }
+
+        input[type="file"] {
+            appearance: none;
+            -webkit-appearance: none;
+            border: none;
+            background: none;
+            color: transparent;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            outline: none;
+            cursor: pointer;
+        }
+
+        input[type="file"]::-webkit-file-upload-button {
+            display: none;
+        }
+
+        input[type="file"]::file-selector-button {
+            display: none;
+        }
+
+        & span {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    // .section__profile-name
+
+    &__profile-name {
+        margin-top: 1.5rem;
+        margin-bottom: 0.81rem;
+        color: #252525;
+        font-family: "DM Sans";
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 1;
+        text-align: center;
+    }
+
+    // .section__profile-subscription
+
+    &__profile-subscription {
+        color: #46237A;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "DM Sans";
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1;
+        border-radius: 0.5rem;
+        background-color: #E4D2FF;
+        width: 7.1875rem;
+        height: 2.3125rem;
+        margin: 0 auto;
+    }
+
+    // .section__profile-list
+
+    &__profile-list {
+        display: grid;
+        gap: 2rem;
+        margin-top: 3.5rem;
+        margin-bottom: 3.5rem;
+
+        & li:last-child {
+            border: none;
+            padding: 0;
+        }
+    }
+
+    // .section__profile-item
+
+    &__profile-item {
+        color: #252525;
+        font-family: "DM Sans";
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1;
+        padding-bottom: 2rem;
+        border-bottom: 2px solid #D9D9D9;
+        ;
+
+        &::after {
+            content: '';
+
+        }
+
+        & span {
+            display: block;
+            color: #33B786;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+    }
+
+    // .section__profile-button
+
+    &__profile-button {
+        text-align: center;
     }
 }
 
@@ -1712,6 +1888,10 @@ img {
             grid-template-columns: auto auto;
             grid-template-rows: auto auto;
         }
+
+        &__accounts-row {
+            column-gap: 0;
+        }
     }
 
     .login {
@@ -1744,8 +1924,6 @@ img {
         &__box {
             padding: 4rem 0.5rem;
         }
-
-        &__password-box {}
     }
 }
 
@@ -1763,6 +1941,10 @@ img {
     }
 
     .section {
+        &__accounts-row {
+            grid-template-columns: 1fr;
+        }
+
         &__content-accounts &__block {
             border-radius: 0.75rem;
             background: #D4F3E7;
@@ -1770,8 +1952,9 @@ img {
         }
 
         &__accounts-transactions {
-            grid-template-columns: 0.9fr;
+            grid-template-columns: 1fr;
             gap: 2em;
+            max-width: 100%;
         }
 
         &__statistics-row {

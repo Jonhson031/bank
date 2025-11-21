@@ -31,7 +31,9 @@
             <div class="overlay"></div>
             <div class="dashboard__container">
                 <div class="dashboard__sidebar sticky">
-                    <h2 class="dashboard__logo logo">Bank</h2>
+                    <div class="dashboard__logo logo">
+                        <img src="images/logo.svg" alt="Logo Reen Bank">
+                    </div>
                     <ul class="dashboard__sections-list">
                         <li class="dashboard__item active" data-btn="overview">
                             Overview
@@ -482,7 +484,34 @@
                                 </ul>
                             </div>
                         </section>
-                        <section class="dashboard__section dashboard__section--profile" id="section-profile"></section>
+                        <section class="dashboard__section dashboard__section--profile" id="section-profile">
+                            <div class="section__profile-content">
+                                <div class="section__profile-image">
+                                    <img src="images/profile-img.svg" alt="profile image">
+                                    <div class="section__profile-image-edit">
+                                        <input type="file">
+                                        <span class="icon-fi-rr-pencil"></span>
+                                    </div>
+                                </div>
+                                <h2 class="section__profile-name">Maureen Oguche</h2>
+                                <div class="section__profile-subscription">Pro User</div>
+                                <ul class="section__profile-list">
+                                    <li class="section__profile-item section__profile-email">
+                                        <span>Email</span>
+                                        oguchemaureenm@gmail.com
+                                    </li>
+                                    <li class="section__profile-item section__profile-phone">
+                                        <span>Phone Number</span>
+                                        +1 234 567 8901
+                                    </li>
+                                    <li class="section__profile-item section__profile-gender">
+                                        <span>Gender</span>
+                                        Female
+                                    </li>
+                                </ul>
+                                <div class="section__profile-button button button-green">Reset Password</div>
+                            </div>
+                        </section>
                     </div>
                 </div>
                 <div class="dashboard__modals">
@@ -494,13 +523,13 @@
                         </div>
                         <div class="account__buttons">
                             <button class="account__button account__button-cancel">Cancel</button>
-                            <button class="account__button account__button-green">Add</button>
+                            <button class="account__button account__button-green button">Add</button>
                         </div>
                     </div>
                     <div class="account__message account__message-add modal">
                         <h3><span>Account Name</span> has been created successfully!</h3>
                         <button class="account__button account__button-cancel">Go back</button>
-                        <button class="account__button account__button-green">Fund Account</button>
+                        <button class="account__button account__button-green button">Fund Account</button>
                     </div>
                     <div class="account__modal account__modal-withdraw modal">
                         <h2 class="account__title">Withdraw</h2>
@@ -534,13 +563,14 @@
                             </div>
                             <div class="account__buttons">
                                 <button class="account__button account__button-cancel">Cancel</button>
-                                <button class="account__button account__button-green">Withdraw</button>
+                                <button class="account__button account__button-green button">Withdraw</button>
                             </div>
                         </form>
                     </div>
                     <div class="account__message account__message-withdraw modal">
                         <h3><span>$ 1000.00</span> has been sent to your Bank Account!</h3>
-                        <button class="account__button account__button-green account__button-cancel">Go back</button>
+                        <button class="account__button account__button-green account__button-cancel button">Go
+                            back</button>
                     </div>
                     <div class="account__modal account__modal-fund modal">
                         <h2 class="account__title">Fund Wallet</h2>
@@ -595,13 +625,14 @@
                             </div>
                             <div class="account__buttons">
                                 <button class="account__button account__button-cancel">Cancel</button>
-                                <button class="account__button account__button-green">Fund</button>
+                                <button class="account__button account__button-green button">Fund</button>
                             </div>
                         </form>
                     </div>
                     <div class="account__message account__message-fund modal">
                         <h3><span>$ 1000.00</span> has been added to your Wallet!</h3>
-                        <button class="account__button account__button-green account__button-cancel">Go back</button>
+                        <button class="account__button account__button-green account__button-cancel button">Go
+                            back</button>
                     </div>
                 </div>
             </div>
@@ -772,8 +803,8 @@
                             <div class="login__input">
                                 <label for="login__email">Email</label>
                                 <div class="login__input-box">
-                                    <input type="email" placeholder="Enter your Email" id="login__email" name="login__email"
-                                        value="test@email.com" required>
+                                    <input type="email" placeholder="Enter your Email" id="login__email"
+                                        name="login__email" value="test@email.com" required>
                                     <span class="login__input-icon icon-fi-rr-envelope"></span>
                                 </div>
                             </div>
@@ -788,7 +819,7 @@
                                     <span class="login__input-icon icon-fi-rr-lock"></span>
                                 </div>
                             </div>
-                            <button class="login__button">Login</button>
+                            <button class="login__button button">Login</button>
                         </form>
                         <div class="login__question">
                             Don’t Have an Account?
@@ -805,6 +836,7 @@
                                         name="register__name" required>
                                     <span class="login__input-icon icon-fi-rr-user"></span>
                                 </div>
+                                <div class="register__error register__error-name">This field cannot be left blank.</div>
                             </div>
                             <div class="login__input">
                                 <label for="register__email">Email</label>
@@ -813,6 +845,8 @@
                                         name="register__email" required>
                                     <span class="login__input-icon icon-fi-rr-envelope"></span>
                                 </div>
+                                <div class="register__error register__error-email">Please enter a valid email
+                                    address.</div>
                             </div>
                             <div class="login__input">
                                 <label for="register__password">Password</label>
@@ -821,8 +855,17 @@
                                         name="register__password" required>
                                     <span class="login__input-icon icon-fi-rr-lock"></span>
                                 </div>
+                                <div class="register__error register__error-password">
+                                    <ul class="register__error-password--requirements">
+                                        <li>At least 8 characters</li>
+                                        <!-- <li>At least one uppercase letter (A-Z)</li>
+                                        <li>At least one lowercase letter (a-z)</li>
+                                        <li>At least one number (0-9)</li>
+                                        <li>At least one special character (!@#$%^&*)</li> -->
+                                    </ul>
+                                </div>
                             </div>
-                            <button class="register__button ">Register</button>
+                            <button class="register__button button">Register</button>
                         </form>
                         <div class="register__question">
                             Already Have an Account?
