@@ -120,7 +120,8 @@ img {
   font-weight: 700;
 }
 
-.overlay {
+.overlay,
+.overlay-login {
   position: fixed;
   height: 100%;
   width: 100%;
@@ -129,7 +130,8 @@ img {
   opacity: 0;
   transition: all 0.2s;
 }
-.overlay.active {
+.overlay.active,
+.overlay-login.active {
   visibility: visible;
   opacity: 1;
   z-index: 10;
@@ -667,31 +669,30 @@ img {
      object-fit: contain;
 }
 .dashboard__sections {
-  position: relative;
-  width: 100%;
-  height: 100vh;
   margin-top: 5em;
 }
 .dashboard__section {
+  position: relative;
+  display: none;
   visibility: hidden;
   opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  /* fills wrapper */
+  transition: opacity 5.25s ease;
 }
 .dashboard__section.active {
+  transition: opacity 0.25s ease;
+  display: block;
   visibility: visible;
   opacity: 1;
   z-index: 3;
+  transition: opacity 0.25s ease;
 }
 .dashboard__section--overview {
-  display: grid;
   grid-template-columns: minmax(0, 54.57%) minmax(0, 36.91%);
   gap: 10px;
   justify-content: space-between;
+}
+.dashboard__section--overview.active {
+  display: grid;
 }
 
 .section__row {
@@ -1115,7 +1116,6 @@ img {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 50%;
 }
 .section__profile-image-edit {
   position: absolute;
@@ -1229,10 +1229,10 @@ img {
   border-radius: 1.5em;
   overflow: auto;
   transition: all 0.5s;
-  padding: 4.5em 5em;
+  padding: 4.5rem 5rem;
   border-radius: 2rem;
   box-shadow: 0 0 200px 25px rgba(51, 183, 134, 0.25);
-  width: 29.8%;
+  min-width: 29.8%;
   font-family: 1em;
   visibility: hidden;
   opacity: 0;
@@ -1347,7 +1347,7 @@ img {
   border: 1px solid #8A8A8A;
   background: #FFF;
   box-shadow: 0 0 50px 0.5px rgba(0, 0, 0, 0.05);
-  padding: 1.35rem 0rem 1.35rem 2rem;
+  padding: 1.35rem 2.06rem 1.35rem 2rem;
   margin: 0;
 }
 .account__input-radio input[type=radio] {
@@ -1375,7 +1375,6 @@ img {
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 1;
-  max-height: 4rem;
 }
 .account__button-green {
   background-color: #33B786;
@@ -1383,9 +1382,10 @@ img {
 }
 .account__message {
   position: fixed;
-  width: 37.1%;
+  min-width: 37.1%;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   gap: 1.5rem;
   height: 29.9375rem;
   justify-content: flex-end;
@@ -1432,12 +1432,8 @@ img {
     flex: 0 1 90%;
   }
   .dashboard__section--overview {
-    display: grid;
     grid-template-columns: 1fr;
     gap: 10px;
-    justify-content: initial;
-    display: flex;
-    flex-direction: column;
   }
   .section__accounts-transactions {
     grid-template-columns: repeat(2, 1fr);
@@ -1478,6 +1474,9 @@ img {
   }
   .login__box {
     padding: 4rem 0.5rem;
+  }
+  .account__message {
+    width: 80%;
   }
 }
 @media (max-width: 767px) {
@@ -1552,5 +1551,16 @@ img {
     /* under value */
     grid-row: 2;
     text-align: right;
+  }
+  .account__modal, .account__message {
+    width: 95%;
+    padding: 3rem 2rem;
+  }
+  .account__input-select {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .account__buttons {
+    flex-direction: column;
   }
 }

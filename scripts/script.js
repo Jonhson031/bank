@@ -24,6 +24,7 @@ const sectionBtn = document.querySelectorAll('.dashboard__item');
 const sections = document.querySelectorAll('.dashboard__section');
 const dashboardTitle = document.querySelector('.dashboard__title');
 const overlay = document.querySelector('.overlay');
+const overlayLogin = document.querySelector('.overlay-login');
 const accountsRowDetailed = document.querySelector('.section__accounts-detailed');
 const modalFund = document.querySelector('.account__modal-fund');
 const accountAddOverview = document.querySelector('.section__accound-add');
@@ -320,8 +321,16 @@ const modalFunc = function (modal) {
     };
 }
 
+// Display UI
+const displayUI = function (user) {
+    movements(user);
+    displayBalance(user)
+    displayAccountsDetailed(user);
+    displayAccountsOverview(user);
+}
+
 // Modal message
-const modalMessage = function (message, amount, user) {
+const modalMessage = function (message, amount = null, user) {
     overlay.classList.add('active');
     message.classList.add('active');
     // body.classList.add('lock');
@@ -345,15 +354,30 @@ const modalMessage = function (message, amount, user) {
             accountFund(modalFund, user, newAccount);
         })
 
-    } else message.querySelector('span').textContent = `$${amount}`;
-}
-
-// Display UI
-const displayUI = function (user) {
-    movements(user);
-    displayBalance(user)
-    displayAccountsDetailed(user);
-    displayAccountsOverview(user);
+    }
+    if (message.classList.contains('.account__message-fund') || message.classList.contains('.account__message-withdraw')) {
+        message.querySelector('span').textContent = `$${amount}`;
+    }
+    if (message.classList.contains('account__message-logout')) {
+        message.querySelector('.account__button-green').addEventListener('click', (e) => {
+            e.preventDefault();
+            overlay.classList.remove('active');
+            message.classList.remove('active');
+            dashboard.classList.remove('active');
+            body.classList.remove('lock');
+        })
+    }
+    if (message.classList.contains('account__message-register')) {
+        overlayLogin.classList.add('active');
+        message.querySelector('.account__button-green').addEventListener('click', (e) => {
+            e.preventDefault();
+            overlayLogin.classList.remove('active');
+            message.classList.remove('active');
+            login.classList.remove('active');
+            dashboard.classList.add('active');
+            body.classList.add('lock');
+        })
+    }
 }
 
 // Fund Acounts
@@ -469,6 +493,15 @@ const accountAdd = function (modal, user) {
         }
     });
 }
+
+// Logout
+const logoutBtn = document.querySelector('.dashboard__logout');
+logoutBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    const message = document.querySelector('.account__message-logout');
+    modalMessage(message)
+    // dashboard.classList.remove('active');
+});
 
 // Account Add button at overview section
 accountAddOverview.addEventListener('click', function (e) {
@@ -685,7 +718,7 @@ if (login) {
             login.classList.remove('active');
             dashboard.classList.add('active');
             body.classList.add('lock');
-            document.querySelector('main').style.display = 'none';
+            // document.querySelector('main').style.display = 'none';
             labelName.textContent = currentUser.owner;
             labelAccountNum.textContent = currentUser.id;
             displayUI(currentUser);
@@ -722,8 +755,9 @@ const validateForm = function () {
     let valid = true;
 
     // Name validation
-    if (!userName.value.trim()) {
+    if (!userName.value.trim() || userName.value.trim().length < 1) {
         nameError.style.display = 'block';
+        valid = false;
     } else {
         nameError.style.display = 'none';
     }
@@ -738,7 +772,7 @@ const validateForm = function () {
     }
 
     // Password validation
-    if (!userPassword.value.trim() || userPassword.value.length < 8) {
+    if (!userPassword.value.trim() || userPassword.value.trim().length < 8) {
         passwordError.style.display = 'block';
         valid = false;
     } else {
@@ -747,7 +781,7 @@ const validateForm = function () {
     return valid;
 }
 
-const registerUser = function() {
+const registerUser = function () {
     if (!validateForm()) return;
 
     // Check if email already exists
@@ -778,9 +812,15 @@ const registerUser = function() {
     userName.value = '';
     userEmail.value = '';
     userPassword.value = '';
+
+    const currentUser = users[users.length - 1];
+    const message = document.querySelector('.account__message-register');
+    modalMessage(message, null, currentUser);
+    labelName.textContent = currentUser.owner;
+    labelAccountNum.textContent = currentUser.id;
+    displayUI(currentUser);
+    changeSectiton(currentUser);
 }
-
-
 
 const registerInputs = document.querySelector('.register__form').querySelectorAll('input');
 registerInputs.forEach(input => {
@@ -794,3 +834,16 @@ document.querySelector('.register__button').addEventListener('click', function (
     registerUser();
     // displayUI(currentUser);
 });
+
+// Profile Image Change
+const imageChangeInput = document.getElementById('image-change');
+imageChangeInput.addEventListener('change', function (e) {
+    const file = e.target.files[0];
+    if (!file.type.startsWith('image/')) return;
+    const images = document.querySelectorAll('.profile-image');
+    const url = URL.createObjectURL(file);
+    images.forEach(img => {
+        img.src = url;
+        img.onload = () => URL.revokeObjectURL(url);
+    })
+})

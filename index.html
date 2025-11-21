@@ -69,7 +69,7 @@
                                 <img src="images/icons/notifications-icon.svg" alt="bell black icon">
                             </div>
                             <div class="dashboard__img">
-                                <img src="images/icons/prifle-img.svg" alt="profile image">
+                                <img src="images/icons/prifle-img.svg" alt="profile image" class="profile-image">
                             </div>
                         </div>
                     </div>
@@ -487,9 +487,9 @@
                         <section class="dashboard__section dashboard__section--profile" id="section-profile">
                             <div class="section__profile-content">
                                 <div class="section__profile-image">
-                                    <img src="images/profile-img.svg" alt="profile image">
+                                    <img src="images/profile-img.svg" alt="profile image" class="profile-image">
                                     <div class="section__profile-image-edit">
-                                        <input type="file">
+                                        <input type="file" id="image-change">
                                         <span class="icon-fi-rr-pencil"></span>
                                     </div>
                                 </div>
@@ -634,6 +634,11 @@
                         <button class="account__button account__button-green account__button-cancel button">Go
                             back</button>
                     </div>
+                    <div class="account__message account__message-logout modal">
+                        <h3>Are you sure you want to Logout?</h3>
+                        <button class="account__button account__button-cancel">Cancell</button>
+                        <button class="account__button account__button-green button">Logout</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -775,6 +780,7 @@
         </main>
         <footer class="footer"></footer>
         <div class="login">
+            <div class="overlay-login"></div>
             <div class="login__container">
                 <div class="login__content">
                     <div class="login__logo logo">
@@ -872,6 +878,10 @@
                             <button class="register__question-btn register__question-btn--login">Login</button>
                         </div>
                     </div>
+                </div>
+                <div class="account__message account__message-register modal">
+                    <h3>Your account has been created Successfully!</h3>
+                    <button class="account__button account__button-green button">Go to Dashboard</button>
                 </div>
             </div>
         </div>
